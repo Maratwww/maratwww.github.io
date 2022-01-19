@@ -1,0 +1,189 @@
+<?php
+function ValidateEmail($email)
+{
+   $pattern = '/^([0-9a-z]([-.\w]*[0-9a-z])*@(([0-9a-z])+([-\w]*[0-9a-z])*\.)+[a-z]{2,6})$/i';
+   return preg_match($pattern, $email);
+}
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['formid']) && $_POST['formid'] == 'form1')
+{
+   $mailto = 'yourname@yourdomain.com';
+   $mailfrom = isset($_POST['email']) ? $_POST['email'] : $mailto;
+   $subject = 'Website form';
+   $message = 'Values submitted from web site form:';
+   $success_url = '';
+   $error_url = '';
+   $eol = "\n";
+   $error = '';
+   $internalfields = array ("submit", "reset", "send", "filesize", "formid", "captcha", "recaptcha_challenge_field", "recaptcha_response_field", "g-recaptcha-response", "h-captcha-response");
+   $boundary = md5(uniqid(time()));
+   $header  = 'From: '.$mailfrom.$eol;
+   $header .= 'Reply-To: '.$mailfrom.$eol;
+   $header .= 'MIME-Version: 1.0'.$eol;
+   $header .= 'Content-Type: multipart/mixed; boundary="'.$boundary.'"'.$eol;
+   $header .= 'X-Mailer: PHP v'.phpversion().$eol;
+
+   try
+   {
+      if (!ValidateEmail($mailfrom))
+      {
+         $error .= "The specified email address (" . $mailfrom . ") is invalid!\n<br>";
+         throw new Exception($error);
+      }
+      $message .= $eol;
+      $message .= "IP Address : ";
+      $message .= $_SERVER['REMOTE_ADDR'];
+      $message .= $eol;
+      foreach ($_POST as $key => $value)
+      {
+         if (!in_array(strtolower($key), $internalfields))
+         {
+            if (is_array($value))
+            {
+               $message .= ucwords(str_replace("_", " ", $key)) . " : " . implode(",", $value) . $eol;
+            }
+            else
+            {
+               $message .= ucwords(str_replace("_", " ", $key)) . " : " . $value . $eol;
+            }
+         }
+      }
+      $body  = 'This is a multi-part message in MIME format.'.$eol.$eol;
+      $body .= '--'.$boundary.$eol;
+      $body .= 'Content-Type: text/plain; charset=ISO-8859-1'.$eol;
+      $body .= 'Content-Transfer-Encoding: 8bit'.$eol;
+      $body .= $eol.stripslashes($message).$eol;
+      if (!empty($_FILES))
+      {
+         foreach ($_FILES as $key => $value)
+         {
+             if ($_FILES[$key]['error'] == 0)
+             {
+                $body .= '--'.$boundary.$eol;
+                $body .= 'Content-Type: '.$_FILES[$key]['type'].'; name='.$_FILES[$key]['name'].$eol;
+                $body .= 'Content-Transfer-Encoding: base64'.$eol;
+                $body .= 'Content-Disposition: attachment; filename='.$_FILES[$key]['name'].$eol;
+                $body .= $eol.chunk_split(base64_encode(file_get_contents($_FILES[$key]['tmp_name']))).$eol;
+             }
+         }
+      }
+      $body .= '--'.$boundary.'--'.$eol;
+      if ($mailto != '')
+      {
+         mail($mailto, $subject, $body, $header);
+      }
+      header('Location: '.$success_url);
+   }
+   catch (Exception $e)
+   {
+      $errorcode = file_get_contents($error_url);
+      $replace = "##error##";
+      $errorcode = str_replace($replace, $e->getMessage(), $errorcode);
+      echo $errorcode;
+   }
+   exit;
+}
+?>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Page</title>
+<meta name="generator" content="WYSIWYG Web Builder 17 Trial Version - https://www.wysiwygwebbuilder.com">
+<link href="font-awesome.min.css" rel="stylesheet">
+<link href="Untitled1.css" rel="stylesheet">
+<link href="index.css" rel="stylesheet">
+<script src="jquery-3.6.0.min.js"></script>
+<script src="wb.carousel.min.js"></script>
+<script>
+$(document).ready(function()
+{
+   var Carousel1Opts =
+   {
+      delay: 3000,
+      duration: 500,
+      easing: 'linear',
+      mode: 'forward',
+      direction: '',
+      pagination: true,
+      pause: null,
+      start: 0
+   };
+   $("#Carousel1").carousel(Carousel1Opts);
+   $("#Carousel1_back a").click(function()
+   {
+      $('#Carousel1').carousel('prev');
+   });
+   $("#Carousel1_next a").click(function()
+   {
+      $('#Carousel1').carousel('next');
+   });
+});
+</script>
+</head>
+<body>
+<a href="https://www.wysiwygwebbuilder.com" target="_blank"><img src="images/builtwithwwb17.png" alt="WYSIWYG Web Builder" style="position:absolute;left:441px;top:967px;margin: 0;border-width:0;z-index:250" width="16" height="16"></a>
+<div id="wb_Bookmark1" style="position:absolute;left:29px;top:26px;width:265px;height:125px;z-index:14;">
+<div id="Bookmark1" style="visibility:hidden;"></div>
+</div>
+<div id="wb_Heading1" style="position:absolute;left:279px;top:38px;width:185px;height:100px;z-index:15;">
+<h1 id="Heading1">Heading</h1></div>
+<div id="Html1" style="position:absolute;left:497px;top:12px;width:100px;height:100px;z-index:16">
+</div>
+<div id="wb_IconFont1" style="position:absolute;left:1527px;top:85px;width:100px;height:100px;text-align:center;z-index:17;">
+<div id="IconFont1"><i class="fa fa-clock-o"></i></div></div>
+<div id="wb_Form1" style="position:absolute;left:190px;top:257px;width:448px;height:320px;z-index:18;">
+<form name="contact" method="post" action="<?php echo basename(__FILE__); ?>" enctype="multipart/form-data" id="Form1">
+<input type="hidden" name="formid" value="form1">
+<label for="Editbox1" id="Label1" style="position:absolute;left:10px;top:15px;width:200px;height:12px;line-height:12px;z-index:0;">Name:</label>
+<input type="text" id="Editbox1" style="position:absolute;left:228px;top:15px;width:190px;height:16px;z-index:1;" name="name" value="" spellcheck="false">
+<label for="Editbox2" id="Label2" style="position:absolute;left:10px;top:46px;width:200px;height:12px;line-height:12px;z-index:2;">Email:</label>
+<input type="text" id="Editbox2" style="position:absolute;left:228px;top:46px;width:190px;height:16px;z-index:3;" name="email" value="" spellcheck="false">
+<label for="Editbox3" id="Label3" style="position:absolute;left:10px;top:77px;width:200px;height:12px;line-height:12px;z-index:4;">Where is the link back to our site?:</label>
+<input type="text" id="Editbox3" style="position:absolute;left:228px;top:77px;width:190px;height:16px;z-index:5;" name="page" value="" spellcheck="false">
+<label for="Editbox4" id="Label4" style="position:absolute;left:10px;top:108px;width:200px;height:12px;line-height:12px;z-index:6;">Web site Title:</label>
+<input type="text" id="Editbox4" style="position:absolute;left:228px;top:108px;width:190px;height:16px;z-index:7;" name="title" value="" spellcheck="false">
+<input type="text" id="Editbox5" style="position:absolute;left:228px;top:139px;width:190px;height:16px;z-index:8;" name="url" value="" spellcheck="false">
+<label for="TextArea1" id="Label6" style="position:absolute;left:10px;top:170px;width:200px;height:12px;line-height:12px;z-index:9;">Web site Description:</label>
+<textarea name="description" id="TextArea1" style="position:absolute;left:228px;top:170px;width:190px;height:90px;z-index:10;" rows="5" cols="21" spellcheck="false"></textarea>
+<input type="submit" id="Button1" name="" value="Send" style="position:absolute;left:228px;top:275px;width:96px;height:25px;z-index:11;">
+<label for="Editbox5" id="Label5" style="position:absolute;left:10px;top:140px;width:200px;height:16px;line-height:16px;z-index:12;">Web site Address:</label>
+</form>
+</div>
+<textarea name="TextArea2" id="TextArea2" style="position:absolute;left:1008px;top:20px;width:326px;height:268px;z-index:19;" rows="18" cols="38" spellcheck="false">вапаваааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааааа</textarea>
+<div id="wb_Carousel1" style="position:absolute;left:652px;top:93px;width:293px;height:100px;z-index:20;overflow:hidden;">
+<div id="Carousel1" style="position:absolute;">
+<div class="frame">
+</div>
+<div class="frame">
+</div>
+<div class="frame">
+</div>
+<div class="frame">
+</div>
+<div class="frame">
+</div>
+</div>
+<div id="Carousel1_back"><a class="carousel-control-prev" role="button"><span class="carousel-control-prev-icon" aria-hidden="true"></span></a></div>
+<div id="Carousel1_next"><a class="carousel-control-next" role="button"><span class="carousel-control-next-icon" aria-hidden="true"></span></a></div>
+</div>
+<div id="wb_Breadcrumb1" style="position:absolute;left:666px;top:377px;width:415px;height:100px;z-index:21;vertical-align:top;">
+<ul id="Breadcrumb1">
+<li><a href="">Home</a></li>
+<li><a href="">Parent Category</a></li>
+<li><a href="">Current Category</a></li>
+</ul>
+</div>
+<div id="wb_CssMenu1" style="position:absolute;left:165px;top:629px;width:827px;height:100px;z-index:22;">
+<ul id="CssMenu1" role="menubar" class="nav">
+<li role="menuitem" class="nav-item firstmain"><a class="nav-link" href="./page1.html" target="_self">Туда</a>
+</li>
+<li role="menuitem" class="nav-item"><a class="nav-link" href="./page2.html" target="_self">Сюда</a>
+</li>
+<li role="menuitem" class="nav-item"><a class="nav-link" href="./page3.html" target="_self">Обратно</a>
+</li>
+<li role="menuitem" class="nav-item"><a class="nav-link" href="" target="_self">Item&nbsp;4</a>
+</li>
+</ul>
+</div>
+</body>
+</html>
