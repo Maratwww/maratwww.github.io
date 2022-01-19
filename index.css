@@ -1,0 +1,522 @@
+body
+{
+   background-color: #FFFFFF;
+   color: #000000;
+   font-family: Arial;
+   font-weight: normal;
+   font-size: 13px;
+   line-height: 1.1875;
+   margin: 0;
+   padding: 0;
+}
+a
+{
+   color: #0000FF;
+   text-decoration: underline;
+}
+a:visited
+{
+   color: #800080;
+}
+a:active
+{
+   color: #FF0000;
+}
+a:hover
+{
+   color: #0000FF;
+   text-decoration: underline;
+}
+input:focus, textarea:focus, select:focus
+{
+   outline: none;
+}
+.visibility-hidden
+{
+   visibility: hidden;
+}
+#stickyLayer
+{
+   background-color: #FBFBFB;
+   background-image: none;
+   border-radius: 0px;
+}
+#stickyLayer
+{
+   -webkit-transform: rotate(-90deg) ;
+   transform: rotate(-90deg) ;
+   transform-origin: top left;
+   -webkit-transition: -webkit-transform 0ms linear 0ms, transform-origin 0ms linear 0ms;
+   transition: transform 0ms linear 0ms, transform-origin 0ms linear 0ms;
+}
+#cookie_policy
+{
+   background-color: rgba(0,0,0,0.78);
+   background-image: none;
+   border-radius: 0px;
+}
+#cookie_button
+{
+   width: 131px;
+   height: 31px;
+   background-color: #ED1C24;
+   background-image: none;
+   border: 0px #ED1C24 solid;
+   border-radius: 2px;
+}
+#cookie_button_text
+{
+   position: absolute;
+   pointer-events: none;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+    left: 0.76%;
+   top: 3.23%;
+   width: 96.95%;
+   height: 87.1%;
+   box-sizing: border-box;
+   overflow: hidden;
+   text-align: center;
+   word-wrap: break-word;
+}
+#wb_cookie_message 
+{
+   background-color: transparent;
+   background-image: none;
+   border: 0px solid #000000;
+   border-radius: 0px;
+   padding: 0;
+   margin: 0;
+   text-align: center;
+}
+#wb_cookie_message div
+{
+   text-align: center;
+}
+#intro
+{
+   background-color: transparent;
+   background-image: url('images/table1_800_faded.jpg');
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-size: cover;
+   border-radius: 0px;
+   margin: 0;
+}
+#intro-overlay
+{
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   background-color: #000000;
+   opacity: 0.5;
+}
+#wb_Heading1
+{
+   background-color: transparent;
+   background-image: none;
+   border: 0px solid #000000;
+   border-radius: 0px;
+   margin: 0;
+   padding: 0;
+   text-align: center;
+}
+#Heading1
+{
+   color: #FFFFFF;
+   font-family: Arial;
+   font-weight: bold;
+   font-style: normal;
+   font-size: 48px;
+   margin: 0;
+   text-align: center;
+}
+#Heading1 a
+{
+   color: inherit;
+   text-decoration: none;
+}
+#wb_down-arrow
+{
+   background-color: transparent;
+   background-image: none;
+   border: 3px solid #FFFFFF;
+   border-radius: 50%;
+   text-align: center;
+   margin: 0;
+   padding: 4px 4px 4px 4px;
+   vertical-align: top;
+}
+#down-arrow
+{
+   height: 36px;
+   width: 36px;
+}
+#down-arrow i
+{
+   color: #FFFFFF;
+   display: inline-block;
+   font-size: 36px;
+   line-height: 36px;
+   vertical-align: middle;
+   width: 35px;
+}
+#down-arrow:hover i
+{
+   color: #0AABE1;
+}
+#NewsFeedTicker1
+{
+   background-color: rgba(255,255,255,0.00);
+   background-image: none;
+   border: 0px solid #CCCCCC;
+   border-radius: 0px;
+   margin: 0;
+   text-align: center;
+}
+#NewsFeedTicker1 .headline
+{
+   position: absolute;
+   padding: 0px;
+   height: 100%;
+   margin: 0 0 8px 0;
+   top: 110%;
+   box-sizing: border-box;
+   padding: 8px;
+   width: 100%;
+   overflow: hidden;
+   font-family: Arial;
+   font-weight: bold;
+   font-size: 16px;
+   color: #FFFFFF;
+   font-style: normal;
+   text-decoration: none;
+}
+#NewsFeedTicker1 h4
+{
+   margin-top: 0;
+   display: block;
+   margin: 0;
+   font-family: Arial;
+   font-weight: bold;
+   font-size: 20px;
+   color: #FFFFFF;
+   font-style: normal;
+   text-decoration: none;
+}
+#NewsFeedTicker1 h4 a
+{
+   color: #FFFFFF;
+   text-decoration: none;
+}
+#NewsFeedTicker1 .news-wait
+{
+   position: absolute;
+   top: 30%;
+   left: 50%;
+   width: 32px;
+   height: 32px;
+   margin-left: -10px;
+   z-index: 4;
+}
+#wb_Form1
+{
+   background-color: #FBFBFB;
+   background-image: none;
+   border: 0px solid #CCCCCC;
+   border-radius: 0px;
+}
+#Label1
+{
+   border: 0px solid #CCCCCC;
+   border-radius: 4px;
+   background-color: transparent;
+   background-image: none;
+   color: #000000;
+   font-family: Arial;
+   font-weight: normal;
+   font-style: normal;
+   font-size: 13px;
+   padding: 4px 4px 4px 4px;
+   margin: 0;
+   text-align: left;
+   vertical-align: top;
+}
+#wb_RadioButton1
+{
+   margin: 0;
+}
+#wb_RadioButton1, #wb_RadioButton1 *, #wb_RadioButton1 *::before, #wb_RadioButton1 *::after
+{
+   box-sizing: border-box;
+}
+#wb_RadioButton1 input[type='radio']
+{
+   position: absolute;
+   padding: 0;
+   margin: 0;
+   opacity: 0;
+   z-index: 1;
+   width: 20px;
+   height: 20px;
+   left: 0;
+   top: 0;
+}
+#wb_RadioButton1 label
+{
+   display: inline-block;
+   vertical-align: middle;
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 0;
+   height: 0;
+   padding: 0;
+}
+#wb_RadioButton1 label::before
+{
+   content: "";
+   display: inline-block;
+   position: absolute;
+   width: 20px;
+   height: 20px;
+   left: 0;
+   top: 0;
+   background-color: #FFFFFF;
+   border: 1px solid #CCCCCC;
+   border-radius: 50%;
+}
+#wb_RadioButton1 label::after
+{
+   display: inline-block;
+   position: absolute;
+   width: 20px;
+   height: 20px;
+   left: 0;
+   top: 0;
+   padding: 0;
+   text-align: center;
+   line-height: 20px;
+   border-radius: 50%;
+   color: #FFFFFF;
+   content: " ";
+   -webkit-transform: scale(0, 0);
+   transform: scale(0, 0);
+}
+#wb_RadioButton1 input[type='radio']:checked + label::after
+{
+   background-color: #3370B7;
+   background-image: none;
+   border-color: #3370B7;
+   -webkit-transform: scale(0.66, 0.66);
+   transform: scale(0.66, 0.66);
+}
+#wb_RadioButton1 input[type='radio']:focus + label::before
+{
+   outline: thin dotted;
+}
+#Label2
+{
+   border: 0px solid #CCCCCC;
+   border-radius: 4px;
+   background-color: transparent;
+   background-image: none;
+   color: #000000;
+   font-family: Arial;
+   font-weight: normal;
+   font-style: normal;
+   font-size: 13px;
+   padding: 4px 4px 4px 4px;
+   margin: 0;
+   text-align: left;
+   vertical-align: top;
+}
+#wb_RadioButton2
+{
+   margin: 0;
+}
+#wb_RadioButton2, #wb_RadioButton2 *, #wb_RadioButton2 *::before, #wb_RadioButton2 *::after
+{
+   box-sizing: border-box;
+}
+#wb_RadioButton2 input[type='radio']
+{
+   position: absolute;
+   padding: 0;
+   margin: 0;
+   opacity: 0;
+   z-index: 1;
+   width: 20px;
+   height: 20px;
+   left: 0;
+   top: 0;
+}
+#wb_RadioButton2 label
+{
+   display: inline-block;
+   vertical-align: middle;
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 0;
+   height: 0;
+   padding: 0;
+}
+#wb_RadioButton2 label::before
+{
+   content: "";
+   display: inline-block;
+   position: absolute;
+   width: 20px;
+   height: 20px;
+   left: 0;
+   top: 0;
+   background-color: #FFFFFF;
+   border: 1px solid #CCCCCC;
+   border-radius: 50%;
+}
+#wb_RadioButton2 label::after
+{
+   display: inline-block;
+   position: absolute;
+   width: 20px;
+   height: 20px;
+   left: 0;
+   top: 0;
+   padding: 0;
+   text-align: center;
+   line-height: 20px;
+   border-radius: 50%;
+   color: #FFFFFF;
+   content: " ";
+   -webkit-transform: scale(0, 0);
+   transform: scale(0, 0);
+}
+#wb_RadioButton2 input[type='radio']:checked + label::after
+{
+   background-color: #3370B7;
+   background-image: none;
+   border-color: #3370B7;
+   -webkit-transform: scale(0.66, 0.66);
+   transform: scale(0.66, 0.66);
+}
+#wb_RadioButton2 input[type='radio']:focus + label::before
+{
+   outline: thin dotted;
+}
+#Label3
+{
+   border: 0px solid #CCCCCC;
+   border-radius: 4px;
+   background-color: transparent;
+   background-image: none;
+   color: #000000;
+   font-family: Arial;
+   font-weight: normal;
+   font-style: normal;
+   font-size: 13px;
+   padding: 4px 4px 4px 4px;
+   margin: 0;
+   text-align: left;
+   vertical-align: top;
+}
+#wb_RadioButton3
+{
+   margin: 0;
+}
+#wb_RadioButton3, #wb_RadioButton3 *, #wb_RadioButton3 *::before, #wb_RadioButton3 *::after
+{
+   box-sizing: border-box;
+}
+#wb_RadioButton3 input[type='radio']
+{
+   position: absolute;
+   padding: 0;
+   margin: 0;
+   opacity: 0;
+   z-index: 1;
+   width: 20px;
+   height: 20px;
+   left: 0;
+   top: 0;
+}
+#wb_RadioButton3 label
+{
+   display: inline-block;
+   vertical-align: middle;
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 0;
+   height: 0;
+   padding: 0;
+}
+#wb_RadioButton3 label::before
+{
+   content: "";
+   display: inline-block;
+   position: absolute;
+   width: 20px;
+   height: 20px;
+   left: 0;
+   top: 0;
+   background-color: #FFFFFF;
+   border: 1px solid #CCCCCC;
+   border-radius: 50%;
+}
+#wb_RadioButton3 label::after
+{
+   display: inline-block;
+   position: absolute;
+   width: 20px;
+   height: 20px;
+   left: 0;
+   top: 0;
+   padding: 0;
+   text-align: center;
+   line-height: 20px;
+   border-radius: 50%;
+   color: #FFFFFF;
+   content: " ";
+   -webkit-transform: scale(0, 0);
+   transform: scale(0, 0);
+}
+#wb_RadioButton3 input[type='radio']:checked + label::after
+{
+   background-color: #3370B7;
+   background-image: none;
+   border-color: #3370B7;
+   -webkit-transform: scale(0.66, 0.66);
+   transform: scale(0.66, 0.66);
+}
+#wb_RadioButton3 input[type='radio']:focus + label::before
+{
+   outline: thin dotted;
+}
+#Button1
+{
+   border: 1px solid #2E6DA4;
+   border-radius: 4px;
+   background-color: #3370B7;
+   background-image: none;
+   color: #FFFFFF;
+   font-family: Arial;
+   font-weight: normal;
+   font-style: normal;
+   font-size: 13px;
+   padding: 1px 6px 1px 6px;
+   text-align: center;
+   -webkit-appearance: none;
+   margin: 0;
+}
+#wb_down-arrow
+{
+   top: auto !important; 
+   bottom: 25px !important;
+   left: 50% !important;
+   margin-left: -25px;
+}
