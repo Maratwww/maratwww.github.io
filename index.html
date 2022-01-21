@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Безымянная страница</title>
+<meta name="generator" content="WYSIWYG Web Builder 17 Trial Version - https://www.wysiwygwebbuilder.com">
+<link href="font-awesome.min.css" rel="stylesheet">
+<link href="Безымянный1.css" rel="stylesheet">
+<link href="index.css" rel="stylesheet">
+<script src="jquery-3.6.0.min.js"></script>
+<script src="wb.overlay.min.js"></script>
+<script>
+$(document).ready(function()
+{
+   $('#OverlayMenu1-overlay').overlay({hideTransition:true});
+   $('#OverlayMenu1').on('click', function(e)
+   {
+      $.overlay.show($('#OverlayMenu1-overlay'));
+      return false;
+   });
+});
+</script>
+</head>
+<body>
+<a href="https://www.wysiwygwebbuilder.com" target="_blank"><img src="images/builtwithwwb17.png" alt="WYSIWYG Web Builder" style="position:absolute;left:441px;top:967px;margin: 0;border-width:0;z-index:250" width="16" height="16"></a>
+<div id="Article1" style="overflow:hidden;position:absolute;left:34px;top:653px;width:282px;height:100px;z-index:1;">
+<div class="blogitem">
+   <span class="blogsubject">Subject</span>
+   <div class="no-thumb"></div>
+   <div class="blogdate">Friday, January 21, 2022<br></div>
+   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+   <div class="blogcomments"><a href="mailto:mail@yourwebsite.com?subject=Subject">Send Comments</a></div>
+</div>
+<div class="clearfix visible-col1"></div>
+</div>
+<div id="wb_OverlayMenu1" style="position:absolute;left:17px;top:19px;width:56px;height:52px;z-index:2;">
+<a href="#" id="OverlayMenu1">
+<span class="line"></span>
+<span class="line">
+</span><span class="line"></span>
+</a>
+</div>
+<div id="OverlayMenu1-overlay">
+<div class="OverlayMenu1">
+<ul class="drilldown-menu" role="menu">
+<li><a role="menuitem" href="#" class="OverlayMenu1-effect"><i class="fa fa-home overlay-icon"></i>Home</a></li>
+<li><a role="menuitem" href="#" class="OverlayMenu1-effect"><i class="fa fa-book overlay-icon"></i>Schematic</a></li>
+<li><a role="menuitem" href="#" class="OverlayMenu1-effect"><i class="fa fa-hand-spock-o overlay-icon"></i>Work</a></li>
+<li><a role="menuitem" href="#" class="OverlayMenu1-effect"><i class="fa fa-wrench overlay-icon"></i>About</a></li>
+   </ul>
+</div>
+<a class="close-button" id="OverlayMenu1-close" href="#" role="button" aria-hidden="true"><span></span></a>
+</div>
+</body>
+</html>
